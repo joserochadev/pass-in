@@ -1,8 +1,6 @@
 import fastify from 'fastify'
-import { createEventController } from './useCases/CreateEvent'
+import { CreateEvent } from './routes/createEvent'
 
 export const app = fastify()
 
-app.post('/events', async (request, reply) => {
-	await createEventController.handle(request, reply)
-})
+app.register(CreateEvent)

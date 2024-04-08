@@ -22,7 +22,7 @@ export class CreateEventController {
 
 			return reply.status(201).send({ eventId: event.id })
 		} catch (error: Error | any) {
-			return reply.status(400).send({ messagem: error.message })
+			return reply.status(400).send({ message: error.message })
 		}
 	}
 }
