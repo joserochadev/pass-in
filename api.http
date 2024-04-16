@@ -2,17 +2,17 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-  "title": "teste",
+  "title": "teste 2",
   "description": "descrição do teste",
-  "maximunAttendees": 100
+  "maximunAttendees": 1
 }
 
 ###
 
-POST http://localhost:3333/events/532dac09-3a25-472e-b6c0-543a6919ef0d/attendee
+POST http://localhost:3333/events/67c61d55-607a-4c46-aaaf-995b68f9e98f/attendee
 Content-Type: application/json
 
 {
-  "name": "José",
-  "email": "jose@gmail.com"
+  "name": "john",
+  "email": "john@gmail.com"
 }

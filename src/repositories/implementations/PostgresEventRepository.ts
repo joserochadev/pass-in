@@ -3,7 +3,16 @@ import { IEvent } from '../../interfaces/IEvent'
 import { prisma } from '../../lib/prisma'
 import { IEventRepository } from '../IEventRepository'
 
-export class PostgresRepository implements IEventRepository {
+export class PostgresEventRepository implements IEventRepository {
+	async getEvent(eventId: string): Promise<IEvent | null> {
+		const event = await prisma.event.findUnique({
+			where: {
+				id: eventId,
+			},
+		})
+
+		return event
+	}
 	async create({
 		title,
 		description,

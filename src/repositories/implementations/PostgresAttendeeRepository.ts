@@ -14,7 +14,11 @@ export class PostgresAttendeeRepository implements IAttendeeRepository {
 
 		return attendee
 	}
-	async findAttendeeOnEvent(attendeeEmail: string, eventId: string): Promise<IAttendee | null> {
+
+	async findAttendeeOnEvent(
+		attendeeEmail: string,
+		eventId: string,
+	): Promise<IAttendee | null> {
 		const attendeeOnEvent = await prisma.attendee.findUnique({
 			where: {
 				eventId_email: {
@@ -25,5 +29,15 @@ export class PostgresAttendeeRepository implements IAttendeeRepository {
 		})
 
 		return attendeeOnEvent
+	}
+
+	async amountOfAttendeeOnEvent(eventId: string): Promise<number> {
+		const amount = await prisma.attendee.count({
+			where: {
+				eventId,
+			},
+		})
+
+		return amount
 	}
 }
